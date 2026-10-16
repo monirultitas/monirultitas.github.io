@@ -220,6 +220,20 @@ nav {
 /* ── FOOTER ── */
 footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); padding: 20px 40px; text-align: center; font-size: 12px; color: #5a3c34; }
 
+/* ── BACK TO TOP ── */
+#back-to-top {
+  position: fixed; bottom: 28px; right: 28px; z-index: 200;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--coral); color: var(--white);
+  border: none; cursor: pointer; font-size: 20px; line-height: 1;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+  display: flex; align-items: center; justify-content: center;
+}
+#back-to-top.visible { opacity: 1; pointer-events: auto; }
+#back-to-top:hover { background: #b34d38; transform: translateY(-2px); }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 720px) {
   nav { padding: 0 12px; }
@@ -533,6 +547,15 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); 
 </div>
 
 <footer>Monirul Islam &nbsp;·&nbsp; Remote Sensing & GIS Researcher &nbsp;·&nbsp; Dhaka, Bangladesh &nbsp;·&nbsp; 2026</footer>
+
+<button id="back-to-top" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+const btn = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+  btn.classList.toggle('visible', window.scrollY > 400);
+});
+</script>
 
 </body>
 </html>
