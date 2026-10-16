@@ -3,434 +3,646 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Monirul Islam — Remote Sensing & GIS Researcher</title>
+<title>Monirul Islam — GIS & Remote Sensing Researcher</title>
 <style>
 :root {
-  --bg: #0f1117;
-  --surface: #1a1d27;
-  --border: #2a2d3a;
-  --accent: #3b82f6;
-  --accent2: #06b6d4;
+  --bg: #07090f;
+  --surface: #111420;
+  --surface2: #161a28;
+  --border: #1f2437;
+  --accent: #38bdf8;
+  --accent2: #818cf8;
+  --green: #34d399;
   --text: #e2e8f0;
-  --muted: #94a3b8;
-  --tag-bg: #1e3a5f;
-  --tag-text: #93c5fd;
+  --muted: #64748b;
+  --muted2: #94a3b8;
+  --glow: rgba(56,189,248,0.15);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 15px; line-height: 1.7; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; font-size: 15px; line-height: 1.75; }
 a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a:hover { opacity: 0.8; }
+::selection { background: var(--accent); color: #000; }
 
-/* NAV */
+/* ── NAV ── */
 nav {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(15,17,23,0.92); backdrop-filter: blur(10px);
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 52px;
+  background: rgba(7,9,15,0.85); backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
-  padding: 0 24px;
   display: flex; align-items: center; justify-content: space-between;
-  height: 56px;
+  padding: 0 32px;
 }
-.nav-name { font-weight: 700; font-size: 16px; color: var(--text); }
-.nav-links { display: flex; gap: 24px; }
-.nav-links a { color: var(--muted); font-size: 14px; }
-.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-logo { font-weight: 700; font-size: 15px; color: var(--text); letter-spacing: -0.3px; }
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a { color: var(--muted2); font-size: 13px; letter-spacing: 0.02em; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
 
-/* HERO */
+/* ── HERO ── */
 .hero {
-  max-width: 860px; margin: 0 auto;
-  padding: 72px 24px 56px;
-  display: flex; gap: 40px; align-items: flex-start;
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 100px 32px 80px;
+  max-width: 900px; margin: 0 auto;
+  position: relative;
 }
-.hero-avatar {
-  width: 110px; height: 110px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  display: flex; align-items: center; justify-content: center;
-  font-size: 40px; font-weight: 700; color: #fff;
-  flex-shrink: 0;
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(56,189,248,0.08); border: 1px solid rgba(56,189,248,0.2);
+  color: var(--accent); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 20px; margin-bottom: 28px;
 }
-.hero-text h1 { font-size: 32px; font-weight: 700; margin-bottom: 4px; }
-.hero-text .subtitle { color: var(--accent2); font-size: 15px; margin-bottom: 12px; }
-.hero-text p { color: var(--muted); max-width: 600px; }
-.hero-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.hero h1 {
+  font-size: clamp(36px, 6vw, 62px);
+  font-weight: 800; line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin-bottom: 8px;
+}
+.hero h1 .name { color: var(--text); }
+.hero h1 .accent { color: var(--accent); }
+
+.hero-tagline {
+  font-size: clamp(16px, 2.5vw, 22px);
+  color: var(--muted2); font-weight: 400;
+  margin-bottom: 28px; max-width: 620px;
+  line-height: 1.5;
+}
+.hero-tagline strong { color: var(--text); font-weight: 600; }
+
+.hero-para { color: var(--muted2); max-width: 560px; font-size: 15px; margin-bottom: 36px; }
+
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 60px; }
 .btn {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 7px 16px; border-radius: 6px; font-size: 13px; font-weight: 500;
-  border: 1px solid var(--border); color: var(--text); background: var(--surface);
-  transition: border-color 0.2s;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 22px; border-radius: 8px; font-size: 14px; font-weight: 500;
+  transition: all 0.2s; cursor: pointer; border: 1px solid transparent;
 }
-.btn:hover { border-color: var(--accent); text-decoration: none; }
-.btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-.btn-primary:hover { background: #2563eb; border-color: #2563eb; }
+.btn-primary { background: var(--accent); color: #000; font-weight: 600; }
+.btn-primary:hover { background: #7dd3fc; opacity: 1; }
+.btn-ghost { border-color: var(--border); color: var(--muted2); background: var(--surface); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--text); opacity: 1; }
 
-/* SECTIONS */
-section { max-width: 860px; margin: 0 auto; padding: 40px 24px; border-top: 1px solid var(--border); }
-h2 { font-size: 20px; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
-h2 .icon { font-size: 18px; }
+.hero-stats { display: flex; flex-wrap: wrap; gap: 32px; }
+.hero-stat .num { font-size: 28px; font-weight: 800; color: var(--text); letter-spacing: -0.5px; }
+.hero-stat .num span { color: var(--accent); }
+.hero-stat .label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
 
-/* CARDS */
-.card {
+/* ── SECTIONS ── */
+.section { max-width: 900px; margin: 0 auto; padding: 80px 32px; }
+.section + .section { border-top: 1px solid var(--border); }
+.section-label {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--accent); margin-bottom: 10px;
+}
+.section-title { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+.section-sub { color: var(--muted2); max-width: 520px; margin-bottom: 40px; font-size: 14px; }
+
+/* ── RESEARCH INTERESTS ── */
+.interests-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+.interest-card {
   background: var(--surface); border: 1px solid var(--border);
-  border-radius: 10px; padding: 20px 22px; margin-bottom: 14px;
+  border-radius: 10px; padding: 18px 16px;
+  transition: border-color 0.2s, background 0.2s;
 }
-.card-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 6px; }
-.card-title { font-weight: 600; font-size: 15px; }
-.card-sub { color: var(--accent2); font-size: 13px; margin-top: 2px; }
-.card-date { color: var(--muted); font-size: 13px; white-space: nowrap; }
-.card-body { color: var(--muted); font-size: 14px; margin-top: 10px; }
-.card-body ul { padding-left: 18px; }
-.card-body li { margin-bottom: 4px; }
+.interest-card:hover { border-color: var(--accent); background: var(--surface2); }
+.interest-icon { font-size: 24px; margin-bottom: 10px; }
+.interest-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.interest-desc { font-size: 12px; color: var(--muted2); }
 
-/* TAGS */
-.tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
-.tag {
-  background: var(--tag-bg); color: var(--tag-text);
-  font-size: 12px; padding: 3px 10px; border-radius: 20px;
+/* ── PROJECTS ── */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.project-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden; transition: border-color 0.2s, transform 0.2s;
+}
+.project-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.project-img {
+  height: 160px; background: var(--surface2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 40px; border-bottom: 1px solid var(--border);
+  position: relative; overflow: hidden;
+}
+.project-img img { width: 100%; height: 100%; object-fit: cover; }
+.project-img .placeholder { font-size: 40px; }
+.project-body { padding: 16px 18px; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.ptag {
+  font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 500;
+  background: rgba(56,189,248,0.1); color: var(--accent);
+}
+.ptag.purple { background: rgba(129,140,248,0.1); color: var(--accent2); }
+.ptag.green { background: rgba(52,211,153,0.1); color: var(--green); }
+.project-title { font-size: 14px; font-weight: 700; margin-bottom: 6px; line-height: 1.4; }
+.project-desc { font-size: 13px; color: var(--muted2); }
+.project-org { font-size: 11px; color: var(--muted); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 28px; }
+.timeline::before { content: ''; position: absolute; left: 0; top: 6px; bottom: 6px; width: 1px; background: var(--border); }
+.tl-item { position: relative; margin-bottom: 36px; }
+.tl-dot {
+  position: absolute; left: -33px; top: 5px;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--accent); border: 2px solid var(--bg);
+  box-shadow: 0 0 0 3px rgba(56,189,248,0.15);
+}
+.tl-dot.muted { background: var(--muted); box-shadow: none; }
+.tl-date { font-size: 12px; color: var(--accent); font-weight: 600; margin-bottom: 4px; letter-spacing: 0.03em; }
+.tl-title { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+.tl-org { font-size: 13px; color: var(--accent2); margin-bottom: 8px; }
+.tl-body { font-size: 13px; color: var(--muted2); }
+.tl-body ul { padding-left: 16px; }
+.tl-body li { margin-bottom: 3px; }
+
+/* ── PUBLICATIONS ── */
+.pub-list { display: flex; flex-direction: column; gap: 14px; }
+.pub-item {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 18px 20px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.pub-num {
+  min-width: 32px; height: 32px; border-radius: 6px;
+  background: rgba(56,189,248,0.08); border: 1px solid rgba(56,189,248,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; color: var(--accent); flex-shrink: 0;
+}
+.pub-num.prep { background: rgba(129,140,248,0.08); border-color: rgba(129,140,248,0.15); color: var(--accent2); }
+.pub-content .pub-type { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 4px; }
+.pub-content .pub-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; line-height: 1.4; }
+.pub-content .pub-ref { font-size: 12px; color: var(--muted2); }
+
+/* ── SKILLS ── */
+.skills-section { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+.skill-group {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 18px 18px;
+}
+.skill-group-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent2); margin-bottom: 12px; }
+.skill-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  font-size: 12px; padding: 4px 10px; border-radius: 6px;
+  background: var(--surface2); border: 1px solid var(--border); color: var(--muted2);
 }
 
-/* SKILLS GRID */
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
-.skill-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
-.skill-card h3 { font-size: 13px; font-weight: 600; color: var(--accent2); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
-.skill-card p { color: var(--muted); font-size: 13px; }
+/* ── AWARDS ── */
+.awards-row { display: flex; flex-wrap: wrap; gap: 14px; }
+.award-card {
+  flex: 1; min-width: 200px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 18px 20px;
+}
+.award-card .award-icon { font-size: 24px; margin-bottom: 10px; }
+.award-card .award-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.award-card .award-body { font-size: 13px; color: var(--muted2); }
 
-/* STATS ROW */
-.stats { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 24px; }
-.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; text-align: center; flex: 1; min-width: 120px; }
-.stat .num { font-size: 26px; font-weight: 700; color: var(--accent); }
-.stat .label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+/* ── CONTACT ── */
+.contact-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; padding: 40px;
+  text-align: center;
+}
+.contact-card h3 { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 10px; }
+.contact-card p { color: var(--muted2); max-width: 480px; margin: 0 auto 28px; font-size: 14px; }
+.contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
 
-/* PUBLICATION */
-.pub { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; }
-.pub .pub-type { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent2); margin-bottom: 6px; }
-.pub .pub-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
-.pub .pub-ref { color: var(--muted); font-size: 13px; }
+/* ── FOOTER ── */
+footer { text-align: center; padding: 32px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); }
 
-/* CONTACT */
-.contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
-.contact-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
-.contact-item .c-label { font-size: 12px; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
-.contact-item .c-val { font-size: 14px; font-weight: 500; }
-
-/* FOOTER */
-footer { text-align: center; padding: 32px 24px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
-
-/* RESPONSIVE */
-@media (max-width: 600px) {
-  .hero { flex-direction: column; gap: 20px; padding: 48px 16px 36px; }
-  .hero-text h1 { font-size: 26px; }
-  .nav-links { display: none; }
-  section { padding: 32px 16px; }
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  nav { padding: 0 16px; }
+  .nav-links { gap: 16px; }
+  .nav-links a:not(:last-child):not(:nth-last-child(2)) { display: none; }
+  .hero { padding: 90px 16px 60px; }
+  .section { padding: 60px 16px; }
+  .contact-card { padding: 28px 20px; }
+  .pub-item { flex-direction: column; gap: 10px; }
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <span class="nav-name">Monirul Islam</span>
+  <div class="nav-logo">Monirul<span>.</span></div>
   <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
     <a href="#research">Research</a>
-    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#publications">Publications</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <!-- HERO -->
-<div class="hero" id="about">
-  <div class="hero-avatar">MI</div>
-  <div class="hero-text">
-    <h1>Monirul Islam</h1>
-    <div class="subtitle">Remote Sensing &amp; GIS Researcher &nbsp;·&nbsp; PhD Aspirant &nbsp;·&nbsp; Dhaka, Bangladesh</div>
-    <p>
-      I study how environmental hazards — floods, climate extremes, water pollution — concentrate risk in data-scarce places
-      and how that risk reaches people's health and livelihoods. My work combines satellite remote sensing and machine learning
-      (Google Earth Engine, Python) with low-cost field sensing (UAV/drone mapping, IoT weather stations) and community-led data collection.
-    </p>
-    <p style="margin-top:10px;">
-      Current projects: flood susceptibility mapping in the Haor region using SAR and ML; climate-dengue risk in Dhaka's
-      informal settlements; satellite water-quality monitoring of the Buriganga River; and UAV agricultural surveys in Bogura.
-    </p>
-    <div class="hero-links">
-      <a class="btn btn-primary" href="mailto:monirtitas@gmail.com">✉ Email Me</a>
-      <a class="btn" href="https://linkedin.com/in/monirultitas" target="_blank">🔗 LinkedIn</a>
-      <a class="btn" href="https://github.com/monirultitas" target="_blank">⌥ GitHub</a>
-      <a class="btn" href="https://www.cersbd.org" target="_blank">🌐 CERS</a>
+<div class="hero">
+  <div class="hero-badge">Open to PhD positions · 2025–26 cycle</div>
+  <h1>
+    <span class="name">Mapping risk<br>where data</span><br>
+    <span class="accent">runs out.</span>
+  </h1>
+  <p class="hero-tagline">
+    I am <strong>Monirul Islam</strong>, a remote sensing and GIS researcher in Dhaka.
+    I combine satellite imagery, machine learning and drone fieldwork to understand
+    how floods and environmental hazards affect vulnerable communities in South Asia.
+  </p>
+  <p class="hero-para">
+    MSc in Remote Sensing & GIS from Jahangirnagar University (CGPA 3.84), NST Fellow 2024–25,
+    and field researcher on Wellcome Trust-funded dengue mapping in Dhaka's informal settlements.
+    Currently looking for a funded PhD position in earth observation, hydrology or GeoAI.
+  </p>
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="mailto:monirtitas@gmail.com">Get in touch</a>
+    <a class="btn btn-ghost" href="https://linkedin.com/in/monirultitas" target="_blank">LinkedIn</a>
+    <a class="btn btn-ghost" href="https://github.com/monirultitas" target="_blank">GitHub</a>
+    <a class="btn btn-ghost" href="https://www.cersbd.org" target="_blank">CERS</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">3.84<span>/4</span></div><div class="label">MSc CGPA</div></div>
+    <div class="hero-stat"><div class="num">3<span>+</span></div><div class="label">yrs research</div></div>
+    <div class="hero-stat"><div class="num">87<span>/120</span></div><div class="label">TOEFL iBT</div></div>
+    <div class="hero-stat"><div class="num">3</div><div class="label">manuscripts in prep</div></div>
+  </div>
+</div>
+
+<!-- RESEARCH INTERESTS -->
+<div class="section" id="research">
+  <div class="section-label">What I study</div>
+  <div class="section-title">Research Interests</div>
+  <p class="section-sub">My work sits at the intersection of earth observation, machine learning and field-based environmental science in data-scarce, climate-exposed regions.</p>
+  <div class="interests-grid">
+    <div class="interest-card">
+      <div class="interest-icon">🛰️</div>
+      <div class="interest-title">Flood Susceptibility Mapping</div>
+      <div class="interest-desc">SAR (Sentinel-1), optical (Sentinel-2), terrain and rainfall integration using RF and SVM in GEE.</div>
+    </div>
+    <div class="interest-card">
+      <div class="interest-icon">🌊</div>
+      <div class="interest-title">Haor & Wetland Hydrology</div>
+      <div class="interest-desc">Flash flood dynamics, LULC change and disaster risk in Bangladesh's northeastern haor basin.</div>
+    </div>
+    <div class="interest-card">
+      <div class="interest-icon">🤖</div>
+      <div class="interest-title">GeoAI & Deep Learning</div>
+      <div class="interest-desc">Applying geospatial machine learning to climate risk modelling and environmental monitoring.</div>
+    </div>
+    <div class="interest-card">
+      <div class="interest-icon">🚁</div>
+      <div class="interest-title">UAV Photogrammetry</div>
+      <div class="interest-desc">Low-altitude drone mapping for informal settlements, agricultural surveys and disaster response.</div>
+    </div>
+    <div class="interest-card">
+      <div class="interest-icon">🌿</div>
+      <div class="interest-title">Water Quality & Pollution</div>
+      <div class="interest-desc">Satellite-based monitoring of eutrophication and organic pollution in peri-urban river systems.</div>
+    </div>
+    <div class="interest-card">
+      <div class="interest-icon">📡</div>
+      <div class="interest-title">Low-Cost Environmental Sensing</div>
+      <div class="interest-desc">IoT weather stations and Arduino sensors to densify microclimate data in underserved areas.</div>
     </div>
   </div>
 </div>
 
-<!-- STATS -->
-<section style="border-top:none; padding-top:0;">
-  <div class="stats">
-    <div class="stat"><div class="num">3.84</div><div class="label">MSc CGPA / 4.00</div></div>
-    <div class="stat"><div class="num">3+</div><div class="label">Years Research Exp.</div></div>
-    <div class="stat"><div class="num">87</div><div class="label">TOEFL iBT Score</div></div>
-    <div class="stat"><div class="num">3</div><div class="label">Manuscripts in Prep.</div></div>
-    <div class="stat"><div class="num">NST</div><div class="label">Govt. Fellowship 2024–25</div></div>
-  </div>
-</section>
+<!-- PROJECTS -->
+<div class="section" id="projects">
+  <div class="section-label">Field & research work</div>
+  <div class="section-title">Featured Projects</div>
+  <p class="section-sub">From rooftop weather stations in Dhaka slums to satellite time-series of river pollution — here is a sample of current and recent work.</p>
+  <div class="projects-grid">
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <h2><span class="icon">💼</span> Experience</h2>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-title">Field Project Assistant — Dhaka Dengue Mapping Project</div>
-        <div class="card-sub">GroupMappers Bangladesh &amp; HOT (Wellcome Trust funded) &nbsp;·&nbsp; Dhaka</div>
+    <div class="project-card">
+      <div class="project-img">
+        <span class="placeholder">🦟</span>
       </div>
-      <div class="card-date">Jun 2026 – Present</div>
-    </div>
-    <div class="card-body">
-      <ul>
-        <li>Flew UAV missions over Korail and Wari Rabidas Para informal settlements for photogrammetry base maps linked to entomological and microclimate data.</li>
-        <li>Installed and operate two Ecowitt GW1201 solar-powered Wi-Fi weather stations; authored the weather-station SOP.</li>
-        <li>Trained community volunteers in OSM, QField, Drone Tasking Manager and CoMMicPlan for ward-level field surveys.</li>
-        <li>Organised a 30-delegate stakeholder workshop (18 Jun 2026) with DNCC, DSCC, BRAC, icddr,b, CDC, NMEP and IEDCR.</li>
-        <li>Prepared CAAB flight-permission applications; obtained DSCC field and flight permission; arranged drone insurance.</li>
-      </ul>
-    </div>
-    <div class="tags">
-      <span class="tag">UAV / Drone</span><span class="tag">OpenStreetMap</span><span class="tag">IoT Sensors</span>
-      <span class="tag">Community Mapping</span><span class="tag">Wellcome Trust</span>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-title">Research Assistant</div>
-        <div class="card-sub">Geomatics &amp; Geoinformatics Solutions Ltd. (GMGI) &nbsp;·&nbsp; Dhaka</div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="ptag">UAV</span>
+          <span class="ptag">OSM</span>
+          <span class="ptag green">Wellcome Trust</span>
+        </div>
+        <div class="project-title">Dhaka Dengue Mapping — Climate & Vector Risk in Informal Settlements</div>
+        <div class="project-desc">Drone photogrammetry over Korail and Wari Rabidas Para, IoT microclimate stations, community OSM mapping and stakeholder workshops to build a dengue risk dashboard for DNCC and DSCC health authorities.</div>
+        <div class="project-org">GroupMappers Bangladesh & HOT · Jun 2026 – Present</div>
       </div>
-      <div class="card-date">Sept 2025 – Present</div>
     </div>
-    <div class="card-body">
-      <ul>
-        <li>Co-authored 6+ technical proposals for government and international development agencies (Climate-Smart Agriculture, Public Health GIS, Smart Transport).</li>
-        <li>Revised MIS Terms of Reference for a Ministry of Women and Children Affairs project (World Bank alignment).</li>
-        <li>Designed UAV and satellite-integrated geospatial methodologies; time-series analysis of river shifting in Manikganj.</li>
-        <li>Conducted UAV data collection for a fodder project across 4–5 upazilas in Bogura (Oct 2026).</li>
-        <li>Developed Python backend for real-time geospatial tracking; worked on ArcGIS, QGIS and GEE analysis pipelines.</li>
-      </ul>
-    </div>
-    <div class="tags">
-      <span class="tag">ArcGIS / QGIS</span><span class="tag">Google Earth Engine</span><span class="tag">Python</span>
-      <span class="tag">UAV Surveys</span><span class="tag">Proposal Writing</span>
-    </div>
-  </div>
 
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-title">Founder &amp; Researcher</div>
-        <div class="card-sub">Center for Environmental Research &amp; Sustainability (CERS) &nbsp;·&nbsp; Bangladesh</div>
+    <div class="project-card">
+      <div class="project-img">
+        <span class="placeholder">🗺️</span>
       </div>
-      <div class="card-date">Aug 2025 – Present</div>
-    </div>
-    <div class="card-body">
-      <ul>
-        <li>Founded an independent research initiative on geospatial environmental analysis in data-scarce regions of Bangladesh.</li>
-        <li>Leading projects on industrial risk mapping, river water-quality monitoring and spatial bias in medicinal-plant data.</li>
-        <li>Developing reproducible GIS workflows and IoT-based environmental sensors for community-level monitoring.</li>
-      </ul>
-    </div>
-    <div class="tags">
-      <span class="tag">Environmental Research</span><span class="tag">GIS</span><span class="tag">IoT</span>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-title">Junior Research Fellow</div>
-        <div class="card-sub">Center for the Study of Genocide &amp; Justice (CSGJ), Liberation War Museum &nbsp;·&nbsp; Dhaka</div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="ptag">Sentinel-1/2</span>
+          <span class="ptag">GEE</span>
+          <span class="ptag purple">MSc Thesis A+</span>
+        </div>
+        <div class="project-title">Flood Susceptibility in Sylhet Division Using ML & Remote Sensing</div>
+        <div class="project-desc">Compared Random Forest and SVM on multi-source inputs (SAR, DEM, rainfall, LULC) to produce validated flood susceptibility maps for one of Bangladesh's most flood-prone divisions.</div>
+        <div class="project-org">IRSGIS, Jahangirnagar University · 2024–2025</div>
       </div>
-      <div class="card-date">May – Nov 2024</div>
     </div>
-    <div class="card-body">
-      <ul>
-        <li>Documented 50+ genocide memorial sites using primary spatial data across 7 union parishads (15 h/week).</li>
-        <li>Designed and deployed an interactive GIS-based web map integrating satellite imagery, archival data and multimedia.</li>
-      </ul>
-    </div>
-    <div class="tags">
-      <span class="tag">GIS Web Mapping</span><span class="tag">Spatial Data</span><span class="tag">Field Surveys</span>
-    </div>
-  </div>
-</section>
 
-<!-- EDUCATION -->
-<section id="education">
-  <h2><span class="icon">🎓</span> Education</h2>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-title">MSc in Remote Sensing &amp; GIS</div>
-        <div class="card-sub">Institute of Remote Sensing &amp; GIS, Jahangirnagar University</div>
+    <div class="project-card">
+      <div class="project-img">
+        <span class="placeholder">🏭</span>
       </div>
-      <div class="card-date">Aug 2023 – Sept 2025</div>
-    </div>
-    <div class="card-body">
-      CGPA: <strong>3.84 / 4.00</strong> &nbsp;·&nbsp; 40 credits<br>
-      Thesis (grade A+): <em>Assessing the Impact of Land Use and Land Cover on Flood Susceptibility in Sylhet Division Using Machine Learning and Remote Sensing</em> — Random Forest and SVM models in GEE and Python on Sentinel satellite, terrain and rainfall data.
-    </div>
-    <div class="tags">
-      <span class="tag">Machine Learning</span><span class="tag">Flood Susceptibility</span><span class="tag">GEE</span>
-      <span class="tag">Random Forest</span><span class="tag">SVM</span>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-title">BSS (Hons) in Disaster &amp; Human Security Management</div>
-        <div class="card-sub">Bangladesh University of Professionals (BUP)</div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="ptag">Sentinel-2</span>
+          <span class="ptag">GEE</span>
+          <span class="ptag green">CERS</span>
+        </div>
+        <div class="project-title">Buriganga River Water Quality — Eutrophication & Pollution Monitoring</div>
+        <div class="project-desc">Spatio-temporal assessment of organic pollution and eutrophication using Sentinel-2 spectral indices and Google Earth Engine time-series analysis of Dhaka's most stressed urban river.</div>
+        <div class="project-org">CERS · 2025–2026 (manuscript in preparation)</div>
       </div>
-      <div class="card-date">2015 – 2018</div>
     </div>
-    <div class="card-body">
-      CGPA: <strong>3.46 / 4.00</strong> &nbsp;·&nbsp; 132.5 credits<br>
-      Coursework: GIS &amp; Remote Sensing, Climatology &amp; Hydrology, Floodplain &amp; Watershed Management, Public Health &amp; Epidemiology.
+
+    <div class="project-card">
+      <div class="project-img">
+        <span class="placeholder">🌾</span>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="ptag">UAV</span>
+          <span class="ptag">QGIS</span>
+        </div>
+        <div class="project-title">UAV Fodder Survey — Bogura Agricultural Upazila Mapping</div>
+        <div class="project-desc">Multi-upazila UAV data collection for grass/fodder identification across 4–5 upazilas in Bogura, coordinated with the Bangladesh Livestock Research Institute (BLRI).</div>
+        <div class="project-org">GMGI Solutions Ltd. · Oct 2026</div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img">
+        <span class="placeholder">🏛️</span>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="ptag purple">GIS Web Map</span>
+          <span class="ptag">Spatial History</span>
+        </div>
+        <div class="project-title">Genocide Memorial Site Mapping — Bangladesh 1971</div>
+        <div class="project-desc">Documented 50+ memorial sites across 7 union parishads using primary field data; built an interactive GIS web map integrating satellite imagery, archival records and multimedia content.</div>
+        <div class="project-org">CSGJ, Liberation War Museum · May – Nov 2024</div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img">
+        <span class="placeholder">🌿</span>
+      </div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="ptag green">CERS</span>
+          <span class="ptag">Spatial Analysis</span>
+        </div>
+        <div class="project-title">Research Deserts — Pharmacological Evidence Gaps in Bangladeshi Medicinal Plants</div>
+        <div class="project-desc">Spatial audit of which medicinal plant species and regions are systematically under-researched, combining georeferenced occurrence data with bibliometric coverage analysis.</div>
+        <div class="project-org">CERS (with Sauda Sultana Mimi) · 2025–2026 (manuscript in preparation)</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- EXPERIENCE + EDUCATION -->
+<div class="section" id="experience">
+  <div class="section-label">Background</div>
+  <div class="section-title">Experience & Education</div>
+  <p class="section-sub">A mix of academic training, field deployment and research consulting, all in Bangladesh.</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">Jun 2026 – Present</div>
+      <div class="tl-title">Field Project Assistant — Dhaka Dengue Mapping Project</div>
+      <div class="tl-org">GroupMappers Bangladesh & HOT (Wellcome Trust) · Dhaka</div>
+      <div class="tl-body">
+        UAV flight operations over informal settlements, two Ecowitt IoT weather stations, community volunteer training in OSM and QField, 30-delegate stakeholder workshop with DNCC, DSCC, BRAC, icddr,b, CDC, NMEP and IEDCR.
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">Sept 2025 – Present</div>
+      <div class="tl-title">Research Assistant</div>
+      <div class="tl-org">GMGI Solutions Ltd. · Dhaka</div>
+      <div class="tl-body">
+        Co-authored 6+ technical proposals for government and international agencies; satellite time-series analysis of Manikganj river shifting; UAV agricultural surveys; Python geospatial backend development.
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">Aug 2025 – Present</div>
+      <div class="tl-title">Founder & Researcher</div>
+      <div class="tl-org">Center for Environmental Research & Sustainability (CERS) · Bangladesh</div>
+      <div class="tl-body">
+        Independent research initiative on environmental GIS in data-scarce regions — industrial risk mapping, river water quality monitoring and medicinal plant spatial bias analysis.
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot muted"></div>
+      <div class="tl-date">Aug 2023 – Sept 2025</div>
+      <div class="tl-title">MSc in Remote Sensing & GIS — CGPA 3.84 / 4.00</div>
+      <div class="tl-org">Institute of Remote Sensing & GIS, Jahangirnagar University</div>
+      <div class="tl-body">
+        Thesis (grade A+): flood susceptibility mapping using Random Forest and SVM on Sentinel-1/2 data in Sylhet Division. NST Fellow 2024–25.
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot muted"></div>
+      <div class="tl-date">May – Nov 2024</div>
+      <div class="tl-title">Junior Research Fellow</div>
+      <div class="tl-org">CSGJ, Liberation War Museum · Dhaka</div>
+      <div class="tl-body">
+        GIS web mapping of genocide memorial sites; field data collection and structured interviews across 7 union parishads.
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot muted"></div>
+      <div class="tl-date">2015 – 2018</div>
+      <div class="tl-title">BSS (Hons) in Disaster & Human Security Management — CGPA 3.46 / 4.00</div>
+      <div class="tl-org">Bangladesh University of Professionals (BUP)</div>
+      <div class="tl-body">
+        Coursework in GIS, hydrology, floodplain management and public health epidemiology.
+      </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- RESEARCH -->
-<section id="research">
-  <h2><span class="icon">📄</span> Research &amp; Publications</h2>
-
-  <div class="pub">
-    <div class="pub-type">Journal Article</div>
-    <div class="pub-title">A comprehensive assessment of university transport services at PUST</div>
-    <div class="pub-ref">Sultana, S., Das, T., Limon, M. M. H., <strong>Islam, M.</strong>, &amp; Rahman, M. M. (2025). <em>American Journal of Traffic and Transportation Engineering</em>, 10(2), 48–61.</div>
+<!-- PUBLICATIONS -->
+<div class="section" id="publications">
+  <div class="section-label">Academic outputs</div>
+  <div class="section-title">Publications</div>
+  <p class="section-sub">One peer-reviewed article, one conference paper and three manuscripts currently in preparation.</p>
+  <div class="pub-list">
+    <div class="pub-item">
+      <div class="pub-num">1</div>
+      <div class="pub-content">
+        <div class="pub-type">Journal Article · Published 2025</div>
+        <div class="pub-title">A comprehensive assessment of university transport services at PUST</div>
+        <div class="pub-ref">Sultana, S., Das, T., Limon, M. M. H., <strong>Islam, M.</strong>, & Rahman, M. M. (2025). <em>American Journal of Traffic and Transportation Engineering</em>, 10(2), 48–61.</div>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-num">2</div>
+      <div class="pub-content">
+        <div class="pub-type">Conference Paper</div>
+        <div class="pub-title">Identifying Exercises and Gaps in Flash Flood Management at Haor Areas of Bangladesh: A Study of Sunamganj District</div>
+        <div class="pub-ref"><strong>Islam, M.</strong> 1st International Conference on Sustainable Development, University of Rajshahi.</div>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-num prep">P1</div>
+      <div class="pub-content">
+        <div class="pub-type">Manuscript in Preparation</div>
+        <div class="pub-title">Spatio-Temporal Assessment of Organic Pollution and Eutrophication Dynamics in the Buriganga River Using Sentinel-2 and Google Earth Engine</div>
+        <div class="pub-ref"><strong>Islam, M.</strong>, et al.</div>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-num prep">P2</div>
+      <div class="pub-content">
+        <div class="pub-type">Manuscript in Preparation</div>
+        <div class="pub-title">Spatial Audit and Hydrological Modelling of Industrial Rainwater Harvesting Potential: A Case Study of the Konabari Industrial Cluster, Bangladesh</div>
+        <div class="pub-ref"><strong>Islam, M.</strong>, et al.</div>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-num prep">P3</div>
+      <div class="pub-content">
+        <div class="pub-type">Manuscript in Preparation</div>
+        <div class="pub-title">Mapping the Research Deserts: A Spatial Analysis of Pharmacological Evidence for Medicinal Plants in Bangladesh</div>
+        <div class="pub-ref"><strong>Islam, M.</strong>, Sultana, S., et al.</div>
+      </div>
+    </div>
   </div>
-
-  <div class="pub">
-    <div class="pub-type">Conference Paper</div>
-    <div class="pub-title">Identifying Exercises and Gaps in Flash Flood Management at Haor Areas of Bangladesh: A Study of Sunamganj District</div>
-    <div class="pub-ref"><strong>Islam, M.</strong> 1st International Conference on Prospects and Challenges of Sustainable Development in Developing Countries, University of Rajshahi.</div>
-  </div>
-
-  <div class="pub">
-    <div class="pub-type">Manuscript in Preparation</div>
-    <div class="pub-title">Spatial Audit and Hydrological Modelling of Industrial Rainwater Harvesting Potential: A Case Study of the Konabari Industrial Cluster, Bangladesh</div>
-    <div class="pub-ref"><strong>Islam, M.</strong>, et al.</div>
-  </div>
-
-  <div class="pub">
-    <div class="pub-type">Manuscript in Preparation</div>
-    <div class="pub-title">Spatio-Temporal Assessment of Organic Pollution and Eutrophication Dynamics in the Buriganga River Using Sentinel-2 and Google Earth Engine</div>
-    <div class="pub-ref"><strong>Islam, M.</strong>, et al.</div>
-  </div>
-
-  <div class="pub">
-    <div class="pub-type">Manuscript in Preparation</div>
-    <div class="pub-title">Mapping the Research Deserts: A Spatial Analysis of Pharmacological Evidence for Medicinal Plants in Bangladesh</div>
-    <div class="pub-ref"><strong>Islam, M.</strong>, Sultana, S., et al.</div>
-  </div>
-</section>
+</div>
 
 <!-- SKILLS -->
-<section id="skills">
-  <h2><span class="icon">🛠</span> Skills</h2>
-  <div class="skills-grid">
-    <div class="skill-card">
-      <h3>Geospatial Platforms</h3>
-      <p>Google Earth Engine, ArcGIS, QGIS, ERDAS Imagine — LULC classification, flood susceptibility, time-series change analysis</p>
+<div class="section">
+  <div class="section-label">Tools & methods</div>
+  <div class="section-title">Technical Skills</div>
+  <p class="section-sub" style="margin-bottom:28px;">Built through coursework, thesis research and active field deployment — not just listed, but used.</p>
+  <div class="skills-section">
+    <div class="skill-group">
+      <div class="skill-group-title">Earth Observation</div>
+      <div class="skill-chips">
+        <span class="chip">Google Earth Engine</span>
+        <span class="chip">Sentinel-1 SAR</span>
+        <span class="chip">Sentinel-2</span>
+        <span class="chip">ERDAS Imagine</span>
+        <span class="chip">LULC classification</span>
+        <span class="chip">Time-series analysis</span>
+      </div>
     </div>
-    <div class="skill-card">
-      <h3>Programming</h3>
-      <p>Python (Pandas, NumPy, Scikit-learn, GeoPandas, Rasterio), JavaScript (GEE API), GitHub</p>
+    <div class="skill-group">
+      <div class="skill-group-title">GIS Platforms</div>
+      <div class="skill-chips">
+        <span class="chip">ArcGIS</span>
+        <span class="chip">QGIS</span>
+        <span class="chip">Leaflet</span>
+        <span class="chip">GeoPandas</span>
+        <span class="chip">Rasterio</span>
+        <span class="chip">Mapillary</span>
+      </div>
     </div>
-    <div class="skill-card">
-      <h3>Machine Learning</h3>
-      <p>Random Forest, Support Vector Machines (SVM) for spatial classification and susceptibility mapping</p>
+    <div class="skill-group">
+      <div class="skill-group-title">Programming</div>
+      <div class="skill-chips">
+        <span class="chip">Python</span>
+        <span class="chip">JavaScript (GEE)</span>
+        <span class="chip">Pandas / NumPy</span>
+        <span class="chip">Scikit-learn</span>
+        <span class="chip">Matplotlib</span>
+        <span class="chip">GitHub</span>
+      </div>
     </div>
-    <div class="skill-card">
-      <h3>UAV / Drone</h3>
-      <p>Mission planning, photogrammetry, Drone Tasking Manager, CAAB permitting, drone insurance, image stitching</p>
+    <div class="skill-group">
+      <div class="skill-group-title">Machine Learning</div>
+      <div class="skill-chips">
+        <span class="chip">Random Forest</span>
+        <span class="chip">SVM</span>
+        <span class="chip">Flood susceptibility</span>
+        <span class="chip">Spatial validation</span>
+      </div>
     </div>
-    <div class="skill-card">
-      <h3>Field &amp; IoT Tools</h3>
-      <p>Ecowitt weather stations (GW1201/WS69), Arduino sensors, QField, Mapillary, OSM, ChattyMap, uMap</p>
+    <div class="skill-group">
+      <div class="skill-group-title">UAV & Field</div>
+      <div class="skill-chips">
+        <span class="chip">Drone mission planning</span>
+        <span class="chip">Photogrammetry</span>
+        <span class="chip">Drone Tasking Manager</span>
+        <span class="chip">QField</span>
+        <span class="chip">CAAB permitting</span>
+        <span class="chip">OSM field mapping</span>
+      </div>
     </div>
-    <div class="skill-card">
-      <h3>Visualization</h3>
-      <p>Matplotlib, Seaborn, Leaflet, interactive web maps, Adobe Illustrator</p>
+    <div class="skill-group">
+      <div class="skill-group-title">IoT & Sensors</div>
+      <div class="skill-chips">
+        <span class="chip">Ecowitt GW1201</span>
+        <span class="chip">Arduino sensors</span>
+        <span class="chip">IoT API retrieval</span>
+        <span class="chip">Weather station SOP</span>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- AWARDS -->
-<section>
-  <h2><span class="icon">🏅</span> Awards &amp; Training</h2>
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">National Science &amp; Technology (NST) Fellowship</div>
-      <div class="card-date">2024 – 2025</div>
+<div class="section">
+  <div class="section-label">Recognition & tests</div>
+  <div class="section-title">Awards & Certifications</div>
+  <div class="awards-row" style="margin-top:8px;">
+    <div class="award-card">
+      <div class="award-icon">🏅</div>
+      <div class="award-title">NST Fellowship 2024–25</div>
+      <div class="award-body">National Science & Technology Fellowship, Ministry of Science & Technology, Government of Bangladesh.</div>
     </div>
-    <div class="card-body">Ministry of Science &amp; Technology, Government of Bangladesh.</div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">TOEFL iBT — 87 / 120 (B2)</div>
-      <div class="card-date">Dec 2025</div>
+    <div class="award-card">
+      <div class="award-icon">📝</div>
+      <div class="award-title">TOEFL iBT 87 / 120</div>
+      <div class="award-body">B2 (CEFR) · R20 L23 S23 W21 · December 2025. English for academic and professional purposes.</div>
     </div>
-    <div class="card-body">Reading 20 &nbsp;·&nbsp; Listening 23 &nbsp;·&nbsp; Speaking 23 &nbsp;·&nbsp; Writing 21</div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">HOT Technical Training</div>
-      <div class="card-date">Jun 2026</div>
+    <div class="award-card">
+      <div class="award-icon">🗺️</div>
+      <div class="award-title">HOT Technical Training</div>
+      <div class="award-body">Humanitarian OpenStreetMap Team, June 2026. OSM, Drone Tasking Manager, QField, Mapillary, uMap.</div>
     </div>
-    <div class="card-body">Humanitarian OpenStreetMap Team: OSM, HOT/Field Tasking Manager, Drone Tasking Manager, QField, Mapillary, ChattyMap, uMap.</div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">Internet of Things (IoT) Training</div>
-      <div class="card-date">2024</div>
+    <div class="award-card">
+      <div class="award-icon">⚡</div>
+      <div class="award-title">IoT Training — 80 hours</div>
+      <div class="award-body">Internet of Things, IIT Jahangirnagar University (EDGE Project, Bangladesh Computer Council).</div>
     </div>
-    <div class="card-body">IIT, Jahangirnagar University (EDGE Project, Bangladesh Computer Council) — 80 hours.</div>
   </div>
-</section>
+</div>
 
 <!-- CONTACT -->
-<section id="contact">
-  <h2><span class="icon">✉</span> Contact</h2>
-  <div class="contact-grid">
-    <div class="contact-item">
-      <div class="c-label">Email</div>
-      <div class="c-val"><a href="mailto:monirtitas@gmail.com">monirtitas@gmail.com</a></div>
-    </div>
-    <div class="contact-item">
-      <div class="c-label">Research Email</div>
-      <div class="c-val"><a href="mailto:monir@cersbd.org">monir@cersbd.org</a></div>
-    </div>
-    <div class="contact-item">
-      <div class="c-label">LinkedIn</div>
-      <div class="c-val"><a href="https://linkedin.com/in/monirultitas" target="_blank">linkedin.com/in/monirultitas</a></div>
-    </div>
-    <div class="contact-item">
-      <div class="c-label">GitHub</div>
-      <div class="c-val"><a href="https://github.com/monirultitas" target="_blank">github.com/monirultitas</a></div>
-    </div>
-    <div class="contact-item">
-      <div class="c-label">Organization</div>
-      <div class="c-val"><a href="https://www.cersbd.org" target="_blank">cersbd.org</a></div>
-    </div>
-    <div class="contact-item">
-      <div class="c-label">Location</div>
-      <div class="c-val">Shahbagh, Dhaka, Bangladesh</div>
+<div class="section" id="contact">
+  <div class="contact-card">
+    <h3>Let's work together.</h3>
+    <p>I am actively looking for funded PhD positions in remote sensing, GeoAI, hydrology and environmental monitoring. I am also open to research collaborations, grant partnerships and short-term consulting.</p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:monirtitas@gmail.com">✉ monirtitas@gmail.com</a>
+      <a class="btn btn-ghost" href="mailto:monir@cersbd.org">monir@cersbd.org</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/monirultitas" target="_blank">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/monirultitas" target="_blank">GitHub</a>
+      <a class="btn btn-ghost" href="https://www.cersbd.org" target="_blank">cersbd.org</a>
     </div>
   </div>
-</section>
+</div>
 
 <footer>
-  &copy; 2026 Monirul Islam &nbsp;·&nbsp; Remote Sensing &amp; GIS Researcher, Dhaka, Bangladesh
+  Monirul Islam &nbsp;·&nbsp; Remote Sensing & GIS Researcher &nbsp;·&nbsp; Dhaka, Bangladesh &nbsp;·&nbsp; 2026
 </footer>
 
 </body>
