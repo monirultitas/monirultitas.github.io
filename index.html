@@ -360,10 +360,11 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); 
   <div class="proj-grid">
     <div class="proj-card">
       <div class="proj-img g1 proj-slideshow" id="slideshow1">
-        <img src="images/iot-1.jpg" alt="IoT field work">
-        <img src="images/iot-2.jpg" alt="IoT training" style="display:none">
-        <img src="images/iot-3.jpg" alt="IoT course" style="display:none">
-        <img src="images/iot-4.jpg" alt="IoT workshop" style="display:none">
+        <img src="images/weather-1.jpg" alt="IoT weather station deployment">
+        <img src="images/weather-2.jpg" alt="Weather station installation" style="display:none">
+        <img src="images/weather-3.jpg" alt="Microclimate monitoring station" style="display:none">
+        <img src="images/weather-4.jpg" alt="Field weather station" style="display:none">
+        <img src="images/weather-5.jpg" alt="Weather station setup" style="display:none">
       </div>
       <div class="proj-body">
         <div class="proj-tags"><span class="ptag">UAV</span><span class="ptag">OSM</span><span class="ptag">Wellcome Trust</span></div>
@@ -400,7 +401,7 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); 
       </div>
     </div>
     <div class="proj-card">
-      <div class="proj-img g5"><span>🏛️</span></div>
+      <div class="proj-img g5"><img src="images/csgj-1.jpg" alt="Genocide memorial site fieldwork"></div>
       <div class="proj-body">
         <div class="proj-tags"><span class="ptag">GIS Web Map</span><span class="ptag">Spatial History</span></div>
         <div class="proj-title">Genocide Memorial Site Mapping — Bangladesh 1971</div>
@@ -417,15 +418,32 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); 
         <div class="proj-foot">CERS · 2025–2026</div>
       </div>
     </div>
+    <div class="proj-card">
+      <div class="proj-img g2 proj-slideshow" id="slideshow2">
+        <img src="images/risk-1.jpg" alt="RISK-E-SCAPE course at IUB">
+        <img src="images/risk-2.jpg" alt="Disaster health training" style="display:none">
+        <img src="images/risk-3.jpg" alt="Climate resilience course" style="display:none">
+        <img src="images/risk-4.jpg" alt="RISK-E-SCAPE session" style="display:none">
+        <img src="images/risk-5.jpg" alt="Certificate ceremony IUB" style="display:none">
+      </div>
+      <div class="proj-body">
+        <div class="proj-tags"><span class="ptag">EU Funded</span><span class="ptag">Disaster Health</span><span class="ptag">IUB</span></div>
+        <div class="proj-title">RISK-E-SCAPE — Disaster Health & Climate Resilience Short Course</div>
+        <div class="proj-desc">Professional short course on improving disaster health and climate resilience across the environmental crisis in Nepal and Bangladesh. Covered humanitarian medicine, community engagement and disaster response strategies.</div>
+        <div class="proj-foot">Independent University Bangladesh (IUB), co-funded by the European Union · 2025</div>
+      </div>
+    </div>
   </div>
   <!-- Field photo strip -->
   <div style="margin-top:28px;">
     <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">From the field — IIT Jahangirnagar IoT Training</div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;border-radius:4px;overflow:hidden;">
-      <img src="images/iot-1.jpg" alt="IoT training 1" style="width:100%;height:110px;object-fit:cover;display:block;">
-      <img src="images/iot-2.jpg" alt="IoT training 2" style="width:100%;height:110px;object-fit:cover;display:block;">
-      <img src="images/iot-3.jpg" alt="IoT training 3" style="width:100%;height:110px;object-fit:cover;display:block;">
-      <img src="images/iot-4.jpg" alt="IoT training 4" style="width:100%;height:110px;object-fit:cover;display:block;">
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px;border-radius:4px;overflow:hidden;">
+      <img src="images/iot-1.jpg" alt="IoT training 1" style="width:100%;height:100px;object-fit:cover;display:block;">
+      <img src="images/iot-2.jpg" alt="IoT training 2" style="width:100%;height:100px;object-fit:cover;display:block;">
+      <img src="images/iot-3.jpg" alt="IoT training 3" style="width:100%;height:100px;object-fit:cover;display:block;">
+      <img src="images/iot-4.jpg" alt="IoT training 4" style="width:100%;height:100px;object-fit:cover;display:block;">
+      <img src="images/iot-5.jpg" alt="IoT training 5" style="width:100%;height:100px;object-fit:cover;display:block;">
+      <img src="images/iot-6.jpg" alt="IoT training 6" style="width:100%;height:100px;object-fit:cover;display:block;">
     </div>
   </div>
 </div>
@@ -572,9 +590,9 @@ window.addEventListener('scroll', () => {
   btn.classList.toggle('visible', window.scrollY > 400);
 });
 
-// Project card photo slideshow
-(function() {
-  const ss = document.getElementById('slideshow1');
+// Project card photo slideshows
+['slideshow1', 'slideshow2'].forEach((id, idx) => {
+  const ss = document.getElementById(id);
   if (!ss) return;
   const imgs = ss.querySelectorAll('img');
   let i = 0;
@@ -582,8 +600,8 @@ window.addEventListener('scroll', () => {
     imgs[i].style.display = 'none';
     i = (i + 1) % imgs.length;
     imgs[i].style.display = 'block';
-  }, 2800);
-})();
+  }, 2800 + idx * 400);
+});
 </script>
 
 </body>
