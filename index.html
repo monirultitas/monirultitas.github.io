@@ -15,6 +15,7 @@
   --muted:    #7a5c54;
   --white:    #ffffff;
   --cream:    #fdf9f7;
+  --tint:     #f7e6df;
   --border:   #e8ddd9;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -114,17 +115,33 @@ nav {
 
 /* ── SECTION PANEL ── */
 .panel { background: var(--white); padding: 60px 80px; }
-.panel + .panel { border-top: 1px solid var(--border); }
-.panel.cream { background: var(--cream); }
+.panel.cream { background: var(--tint); }
 .panel-label {
   font-size: 11px; font-weight: 600; text-transform: uppercase;
   letter-spacing: 0.12em; color: var(--coral); margin-bottom: 6px;
+  display: inline-block; padding-left: 14px; position: relative;
+}
+.panel-label::before {
+  content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  width: 8px; height: 8px; border-radius: 2px; background: var(--coral);
 }
 .panel h2 {
   font-size: 32px; font-weight: 700; letter-spacing: -0.5px;
   color: var(--dark); margin-bottom: 6px;
 }
 .panel-sub { font-size: 14px; color: var(--muted); max-width: 520px; margin-bottom: 40px; }
+
+/* ── DARK PANEL (inverted contrast) ── */
+.panel.dark { background: var(--dark); }
+.panel.dark h2 { color: var(--white); }
+.panel.dark .panel-sub { color: #c9a79f; }
+.panel.dark .event-block {
+  background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.12);
+}
+.panel.dark .event-title { color: var(--white); }
+.panel.dark .event-text { color: #c9a79f; }
+.panel.dark .event-thumb { background: rgba(255,255,255,0.06); }
+.panel.dark .ptag { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.14); color: #e0c4bc; }
 
 /* ── MID BANNER ── */
 .mid-banner {
@@ -466,7 +483,7 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); 
 </div>
 
 <!-- FIELD WORK & EVENTS -->
-<div class="panel" id="events">
+<div class="panel dark" id="events">
   <div class="panel-label">Field work & life events</div>
   <h2>Events & Field Work</h2>
   <p class="panel-sub" style="margin-bottom:28px;">Training, fieldwork and research events — click any photo to view it full size.</p>
