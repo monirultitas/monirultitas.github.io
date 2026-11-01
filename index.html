@@ -20,7 +20,8 @@
   --white:    #ffffff;
   --cream:    #f5f9f1;
   --tint:     #e6f0de;   /* leaf tint */
-  --sky:      #e2eff4;   /* water tint */
+  --sky:      #d6e8f2;   /* water tint */
+  --blue:     #2a6f97;   /* water blue */
   --sand:     #f4ecdb;   /* earth tint */
   --leaf:     #d3e7c5;
   --border:   #d3e0cb;
@@ -140,9 +141,17 @@ nav {
 }
 .panel-sub { font-size: 14px; color: var(--muted); max-width: 520px; margin-bottom: 40px; }
 
-/* ── LEAF PANEL (green section, white cards) ── */
-.panel.leaf { background: var(--leaf); }
-.panel.leaf .event-block { border-color: #bcd6ab; box-shadow: 0 4px 18px rgba(47,98,67,0.10); }
+/* ── DEEP GREEN PANEL (dark green section, white cards) ── */
+.panel.leaf { background: linear-gradient(160deg, #1f4a33 0%, #2a5f3f 100%); }
+.panel.leaf h2 { color: var(--white); }
+.panel.leaf .panel-label { color: var(--sun); }
+.panel.leaf .panel-sub { color: #cfe5d4; }
+.panel.leaf .event-block { border-color: transparent; box-shadow: 0 6px 24px rgba(0,0,0,0.18); }
+
+/* ── BLUE (water) PANEL ── */
+.panel.sky .panel-label { color: var(--blue); }
+.panel.sky .panel-label::before { background: var(--blue); }
+.panel.sky .pub-marker { color: var(--blue); }
 
 /* ── MID BANNER ── */
 .mid-banner {
@@ -244,7 +253,7 @@ nav {
 }
 .tl-item.edu::before { border-color: var(--muted); }
 .tl-date { font-size: 12px; font-weight: 600; color: var(--coral); letter-spacing: 0.04em; margin-bottom: 3px; }
-.tl-item.edu .tl-date { color: var(--muted); }
+.tl-item.edu .tl-date { color: var(--blue); }
 .tl-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; color: var(--dark); margin-bottom: 2px; }
 .tl-org { font-size: 13px; color: var(--coral); margin-bottom: 8px; }
 .tl-item.edu .tl-org { color: var(--muted); }
@@ -270,7 +279,7 @@ nav {
 /* ── AWARDS ── */
 .awards-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 .aw { background: var(--cream); border: 1px solid var(--border); padding: 22px 18px; border-radius: 4px; border-top: 3px solid var(--coral); }
-.aw:nth-child(even) { border-top-color: var(--muted); }
+.aw:nth-child(even) { border-top-color: var(--blue); }
 .aw-icon { font-size: 22px; margin-bottom: 10px; }
 .aw-title { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 600; color: var(--dark); margin-bottom: 5px; }
 .aw-body { font-size: 12px; color: var(--muted); line-height: 1.55; }
