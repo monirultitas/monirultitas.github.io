@@ -3,7 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Monirul Islam — Remote Sensing & GIS Researcher</title>
+<title>Monirul Islam | Remote Sensing & GIS Researcher</title>
+<meta name="description" content="Monirul Islam, remote sensing and GIS researcher in Dhaka, Bangladesh. Flood susceptibility mapping, UAV fieldwork, water quality monitoring and GeoAI. Open to funded PhD positions.">
+<meta name="author" content="Monirul Islam">
+<meta name="theme-color" content="#2f6243">
+<link rel="canonical" href="https://monirtitas.me/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://monirtitas.me/">
+<meta property="og:title" content="Monirul Islam | Remote Sensing & GIS Researcher">
+<meta property="og:description" content="Flood risk, UAV fieldwork and satellite monitoring in Bangladesh. Open to funded PhD positions in earth observation, GeoAI and hydrology.">
+<meta property="og:image" content="https://monirtitas.me/images/hot-korail.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232f7a4a'/%3E%3Cstop offset='1' stop-color='%232a6f97'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EMI%3C/text%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -311,6 +323,96 @@ footer { background: #264f36; border-top: 1px solid rgba(255,255,255,0.08); padd
 #back-to-top.visible { opacity: 1; pointer-events: auto; }
 #back-to-top:hover { background: var(--coral-dk); transform: translateY(-2px); }
 
+/* ── GRADIENT SECTIONS ── */
+.panel        { background: linear-gradient(180deg, #ffffff 0%, #f2f8ee 100%); }
+.panel.cream  { background: linear-gradient(160deg, #eef6e8 0%, #d9eacd 100%); }
+.panel.sky    { background: linear-gradient(160deg, #e9f3f9 0%, #cbe1ee 100%); }
+.panel.sand   { background: linear-gradient(160deg, #fbf6ec 0%, #eedfc2 100%); }
+.panel.leaf   { background: linear-gradient(150deg, #1d4630 0%, #2a5f3f 55%, #24566a 100%); }
+.stats-strip  { background: linear-gradient(110deg, #2f6243 0%, #2a6a5c 55%, #2a5f7a 100%); }
+.contact-panel { background: linear-gradient(135deg, #24503a 0%, #2f6243 45%, #2a5f7a 100%); }
+footer        { background: #1f4632; }
+
+/* heading underline */
+.panel h2::after {
+  content: ''; display: block; width: 56px; height: 4px; border-radius: 2px; margin-top: 10px;
+  background: linear-gradient(90deg, var(--coral), var(--blue));
+  transition: width 0.6s ease;
+}
+.panel:hover h2::after { width: 96px; }
+.panel.leaf h2::after { background: linear-gradient(90deg, var(--sun), #9fd3b0); }
+
+/* ── CARDS: accent bar, lift, shadow ── */
+.proj-card, .event-block, .aw { position: relative; transition: transform 0.35s ease, box-shadow 0.35s ease; }
+.proj-card { box-shadow: 0 2px 8px rgba(30,53,39,0.06); }
+.event-block { overflow: hidden; }
+.proj-card::before, .event-block::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 0; height: 4px; z-index: 1;
+  background: linear-gradient(90deg, var(--coral), var(--blue), var(--sun));
+}
+.proj-card:hover, .aw:hover { transform: translateY(-6px); box-shadow: 0 16px 34px rgba(30,53,39,0.16); }
+.event-block:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,0.30); }
+.proj-img span { display: inline-block; transition: transform 0.45s ease; }
+.proj-card:hover .proj-img span { transform: scale(1.22) rotate(-4deg); }
+.aw { border-top: 0; background: linear-gradient(180deg, #ffffff 0%, var(--cream) 100%); overflow: hidden; }
+.aw::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: linear-gradient(90deg, var(--coral), var(--sun)); }
+.aw:nth-child(even)::before { background: linear-gradient(90deg, var(--blue), #6fb3a0); }
+
+/* research interest tiles */
+.int-item { transition: background 0.3s ease; }
+.int-item:hover { background: linear-gradient(160deg, #f1f8ec 0%, #e1eff6 100%); }
+.int-icon { display: inline-block; transition: transform 0.35s ease; }
+.int-item:hover .int-icon { transform: scale(1.25) rotate(-6deg); }
+
+/* skills columns */
+.sk-col { transition: background 0.3s ease; }
+.sk-col:hover { background: linear-gradient(180deg, #f3f9ef 0%, #e6f1f6 100%); }
+.sktag { transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+.sktag:hover { background: var(--coral); border-color: var(--coral); color: var(--white); }
+
+/* timeline: gradient line, dots fill on hover */
+.tl { border-left: 0; background: linear-gradient(180deg, var(--coral), var(--blue)) left top / 2px 100% no-repeat; }
+.tl-item::before { transition: background 0.3s ease, transform 0.3s ease; }
+.tl-item:hover::before { background: var(--coral); transform: scale(1.25); }
+.tl-item.edu:hover::before { background: var(--blue); border-color: var(--blue); }
+.pub-item { transition: background 0.3s ease, padding-left 0.3s ease; }
+.pub-item:hover { background: rgba(255,255,255,0.55); padding-left: 10px; }
+
+/* buttons */
+.ibtn.fill, .cbtn.primary { background: linear-gradient(135deg, var(--coral) 0%, #2a7f7a 100%); border-color: transparent; }
+.ibtn.fill:hover, .cbtn.primary:hover { background: linear-gradient(135deg, var(--coral-dk) 0%, var(--blue) 100%); }
+.ibtn, .cbtn { transition: all 0.25s ease; }
+.ibtn:hover, .cbtn:hover { transform: translateY(-2px); }
+#back-to-top { background: linear-gradient(135deg, var(--coral), var(--blue)); }
+
+/* nav: frosted, shadow once scrolled */
+nav { background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: box-shadow 0.3s ease; }
+nav.scrolled { box-shadow: 0 6px 20px rgba(30,53,39,0.12); }
+.nav-links a.active { background: linear-gradient(135deg, var(--coral), #2a7f7a); }
+.nav-toggle {
+  display: none; width: 40px; height: 40px; border: 0; border-radius: 6px; background: transparent;
+  color: var(--dark); font-size: 22px; cursor: pointer; align-items: center; justify-content: center;
+}
+
+/* ── SCROLL REVEAL ── uses `translate` so hover `transform` still works */
+.js .reveal {
+  opacity: 0; translate: 0 28px;
+  transition: opacity 0.7s ease var(--d, 0s), translate 0.7s ease var(--d, 0s), transform 0.35s ease, box-shadow 0.35s ease, background 0.3s ease;
+}
+.js .reveal.in { opacity: 1; translate: 0 0; }
+
+/* menu jumps land below the sticky nav */
+.panel[id], .contact-panel { scroll-margin-top: 52px; }
+
+/* keyboard focus */
+a:focus-visible, button:focus-visible, .event-thumb:focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; translate: none; }
+  *, *::before, *::after { transition-duration: 0s !important; animation-duration: 0s !important; }
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 720px) {
   nav { padding: 0 12px; }
@@ -326,6 +428,25 @@ footer { background: #264f36; border-top: 1px solid rgba(255,255,255,0.08); padd
   .awards-row { grid-template-columns: 1fr 1fr; }
   .contact-panel { padding: 48px 24px; }
 }
+/* phone menu: links fold under a ☰ button */
+@media (max-width: 720px) {
+  nav { padding: 0 16px; }
+  .nav-toggle { display: flex; }
+  .nav-links {
+    position: absolute; top: 52px; left: 0; right: 0;
+    flex-direction: column; gap: 2px; padding: 0 16px;
+    background: rgba(255,255,255,0.97); box-shadow: 0 12px 24px rgba(30,53,39,0.14);
+    max-height: 0; overflow: hidden; opacity: 0; pointer-events: none;
+    transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.35s ease;
+  }
+  nav.open .nav-links { max-height: 420px; opacity: 1; pointer-events: auto; padding: 8px 16px 14px; }
+  .nav-links a { padding: 11px 12px; font-size: 14px; }
+  .hero-banner { height: 220px; }
+  .hero-banner-text { font-size: 16px; padding: 0 16px; }
+  .intro-text h1 { font-size: 36px; }
+  .event-block { padding: 20px 18px; }
+  .event-gallery { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+}
 </style>
 </head>
 <body>
@@ -333,7 +454,8 @@ footer { background: #264f36; border-top: 1px solid rgba(255,255,255,0.08); padd
 <!-- NAV -->
 <nav>
   <a class="nav-site" href="https://monirtitas.me">monirtitas.me</a>
-  <div class="nav-links">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+  <div class="nav-links" id="nav-links">
     <a href="#research" class="active">Research</a>
     <a href="#projects">Projects</a>
     <a href="#events">Events</a>
@@ -346,7 +468,7 @@ footer { background: #264f36; border-top: 1px solid rgba(255,255,255,0.08); padd
 <!-- HERO BANNER -->
 <div class="hero-banner">
   <img src="https://images.unsplash.com/photo-1597092030241-e634b9cf3f48?auto=format&fit=crop&w=1600&q=80"
-       alt="Aerial view of Bangladesh river and green landscape" loading="lazy">
+       alt="Aerial view of Bangladesh river and green landscape" fetchpriority="high">
   <div class="hero-banner-overlay"></div>
   <div class="hero-banner-text">Remote Sensing · GIS · Flood Risk · Bangladesh</div>
 </div>
@@ -366,9 +488,9 @@ footer { background: #264f36; border-top: 1px solid rgba(255,255,255,0.08); padd
     </p>
     <div class="intro-links">
       <a class="ibtn fill" href="mailto:monirtitas@gmail.com">Get in touch</a>
-      <a class="ibtn" href="https://linkedin.com/in/monirultitas" target="_blank">LinkedIn</a>
-      <a class="ibtn" href="https://github.com/monirultitas" target="_blank">GitHub</a>
-      <a class="ibtn" href="https://www.cersbd.org" target="_blank">CERS</a>
+      <a class="ibtn" href="https://linkedin.com/in/monirultitas" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="ibtn" href="https://github.com/monirultitas" target="_blank" rel="noopener">GitHub</a>
+      <a class="ibtn" href="https://www.cersbd.org" target="_blank" rel="noopener">CERS</a>
     </div>
   </div>
 </div>
@@ -378,7 +500,7 @@ footer { background: #264f36; border-top: 1px solid rgba(255,255,255,0.08); padd
   <div class="sstat"><div class="n">3.84 <span style="font-size:18px;color:#cfe3d3">/ 4.00</span></div><div class="l">MSc CGPA</div></div>
   <div class="sstat"><div class="n">3+ yrs</div><div class="l">Research Experience</div></div>
   <div class="sstat"><div class="n">87 <span style="font-size:18px;color:#cfe3d3">/ 120</span></div><div class="l">TOEFL iBT</div></div>
-  <div class="sstat"><div class="n">NST</div><div class="l">Govt. Fellow 2024–25</div></div>
+  <div class="sstat"><div class="n">NST</div><div class="l">Govt. Fellow 2024-25</div></div>
   <div class="sstat"><div class="n">3</div><div class="l">Manuscripts in Prep.</div></div>
 </div>
 
@@ -433,15 +555,15 @@ footer { background: #264f36; border-top: 1px solid rgba(255,255,255,0.08); padd
 <div class="panel sand" id="projects">
   <div class="panel-label">Field & research work</div>
   <h2>Featured Projects</h2>
-  <p class="panel-sub">From Dhaka rooftop weather stations to satellite river monitoring — a sample of current and recent work.</p>
+  <p class="panel-sub">From Dhaka rooftop weather stations to satellite river monitoring: a sample of current and recent work.</p>
   <div class="proj-grid">
     <div class="proj-card">
       <div class="proj-img g1"><span>🦟</span></div>
       <div class="proj-body">
         <div class="proj-tags"><span class="ptag">UAV</span><span class="ptag">OSM</span><span class="ptag">Wellcome Trust</span></div>
-        <div class="proj-title">Dhaka Dengue Mapping — Climate & Vector Risk in Informal Settlements</div>
+        <div class="proj-title">Dhaka Dengue Mapping: Climate & Vector Risk in Informal Settlements</div>
         <div class="proj-desc">Drone photogrammetry over Korail and Wari Rabidas Para, two IoT weather stations, community OSM mapping and a 30-delegate stakeholder workshop for DNCC and DSCC health authorities.</div>
-        <div class="proj-foot">GroupMappers Bangladesh & HOT · Jun 2026 – Present</div>
+        <div class="proj-foot">GroupMappers Bangladesh & HOT · Jun 2026 - Present</div>
       </div>
     </div>
     <div class="proj-card">
@@ -450,24 +572,24 @@ footer { background: #264f36; border-top: 1px solid rgba(255,255,255,0.08); padd
         <div class="proj-tags"><span class="ptag">Sentinel-1/2</span><span class="ptag">GEE</span><span class="ptag">MSc Thesis A+</span></div>
         <div class="proj-title">Flood Susceptibility in Sylhet Division Using ML & Remote Sensing</div>
         <div class="proj-desc">Compared Random Forest and SVM on SAR, DEM, rainfall and LULC inputs to produce validated flood maps for one of Bangladesh's most flood-prone divisions.</div>
-        <div class="proj-foot">IRSGIS, Jahangirnagar University · 2024–2025</div>
+        <div class="proj-foot">IRSGIS, Jahangirnagar University · 2024-2025</div>
       </div>
     </div>
     <div class="proj-card">
       <div class="proj-img g3"><span>🏭</span></div>
       <div class="proj-body">
         <div class="proj-tags"><span class="ptag">Sentinel-2</span><span class="ptag">GEE</span><span class="ptag">CERS</span></div>
-        <div class="proj-title">Buriganga River — Eutrophication & Pollution Monitoring</div>
+        <div class="proj-title">Buriganga River: Eutrophication & Pollution Monitoring</div>
         <div class="proj-desc">Spatio-temporal assessment of organic pollution using Sentinel-2 spectral indices and GEE time-series analysis of Dhaka's most pressured urban river. Manuscript in preparation.</div>
-        <div class="proj-foot">CERS · 2025–2026</div>
+        <div class="proj-foot">CERS · 2025-2026</div>
       </div>
     </div>
     <div class="proj-card">
       <div class="proj-img g4"><span>🌾</span></div>
       <div class="proj-body">
         <div class="proj-tags"><span class="ptag">UAV</span><span class="ptag">QGIS</span><span class="ptag">BLRI</span></div>
-        <div class="proj-title">UAV Fodder Survey — Bogura Agricultural Upazila Mapping</div>
-        <div class="proj-desc">Multi-upazila UAV data collection for grass and fodder identification across 4–5 upazilas in Bogura, coordinated with the Bangladesh Livestock Research Institute.</div>
+        <div class="proj-title">UAV Fodder Survey: Bogura Agricultural Upazila Mapping</div>
+        <div class="proj-desc">Multi-upazila UAV data collection for grass and fodder identification across 4 to 5 upazilas in Bogura, coordinated with the Bangladesh Livestock Research Institute.</div>
         <div class="proj-foot">GMGI Solutions Ltd. · Oct 2026</div>
       </div>
     </div>
@@ -475,18 +597,18 @@ footer { background: #264f36; border-top: 1px solid rgba(255,255,255,0.08); padd
       <div class="proj-img g5"><span>🏛️</span></div>
       <div class="proj-body">
         <div class="proj-tags"><span class="ptag">GIS Web Map</span><span class="ptag">Spatial History</span></div>
-        <div class="proj-title">Genocide Memorial Site Mapping — Bangladesh 1971</div>
+        <div class="proj-title">Genocide Memorial Site Mapping: Bangladesh 1971</div>
         <div class="proj-desc">Documented 50+ memorial sites across 7 union parishads; built an interactive GIS web map with satellite imagery, archival records and multimedia at the Liberation War Museum.</div>
-        <div class="proj-foot">CSGJ, Liberation War Museum · May–Nov 2024</div>
+        <div class="proj-foot">CSGJ, Liberation War Museum · May-Nov 2024</div>
       </div>
     </div>
     <div class="proj-card">
       <div class="proj-img g6"><span>🌿</span></div>
       <div class="proj-body">
         <div class="proj-tags"><span class="ptag">CERS</span><span class="ptag">Bibliometrics</span><span class="ptag">Spatial Analysis</span></div>
-        <div class="proj-title">Research Deserts — Pharmacological Evidence Gaps in Bangladeshi Medicinal Plants</div>
+        <div class="proj-title">Research Deserts: Pharmacological Evidence Gaps in Bangladeshi Medicinal Plants</div>
         <div class="proj-desc">Spatial audit identifying which plant species and regions are under-researched, combining georeferenced occurrence data with bibliometric coverage analysis.</div>
-        <div class="proj-foot">CERS · 2025–2026</div>
+        <div class="proj-foot">CERS · 2025-2026</div>
       </div>
     </div>
   </div>
@@ -496,23 +618,23 @@ footer { background: #264f36; border-top: 1px solid rgba(255,255,255,0.08); padd
 <div class="panel leaf" id="events">
   <div class="panel-label">Field work & life events</div>
   <h2>Events & Field Work</h2>
-  <p class="panel-sub" style="margin-bottom:28px;">Training, fieldwork and research events — click any photo to view it full size.</p>
+  <p class="panel-sub" style="margin-bottom:28px;">Training, fieldwork and research events. Click any photo to view it full size.</p>
   <div class="events-list">
 
     <div class="event-block">
       <div class="event-head">
-        <span class="event-title">Dhaka Dengue Mapping — Korail &amp; Wari (HOT)</span>
-        <span class="event-meta">GroupMappers Bangladesh &amp; HOT · Jun 2026 – Present</span>
+        <span class="event-title">Dhaka Dengue Mapping: Korail &amp; Wari (HOT)</span>
+        <span class="event-meta">GroupMappers Bangladesh &amp; HOT · Jun 2026 - Present</span>
       </div>
       <div class="event-tags"><span class="ptag">UAV</span><span class="ptag">OSM</span><span class="ptag">Wellcome Trust</span></div>
       <div class="event-text">Field site selection visits to Korail (DNCC) and Wari Rabidas Para (DSCC), community OSM mapping, entomological survey training and a stakeholder workshop for DNCC and DSCC health authorities, as part of the Wellcome Trust-funded Dhaka Dengue Mapping project with the Humanitarian OpenStreetMap Team.</div>
       <div class="event-gallery">
-        <div class="event-thumb"><img src="images/hot-korail.jpg" alt="Field site selection visit — Korail" data-cap="Field site selection visit — Korail, DNCC"></div>
-        <div class="event-thumb"><img src="images/hot-wari.jpg" alt="Field site selection visit — Wari" data-cap="Field site selection visit — Wari Rabidas Para, DSCC"></div>
-        <div class="event-thumb"><img src="images/dscc-1.jpg" alt="DSCC stakeholder workshop day 1" data-cap="DSCC stakeholder workshop — Day 1"></div>
-        <div class="event-thumb"><img src="images/dscc-2.jpg" alt="DSCC stakeholder workshop day 2" data-cap="DSCC stakeholder workshop — Day 2"></div>
-        <div class="event-thumb"><img src="images/ento-1.jpg" alt="Entomological survey training" data-cap="Entomological survey training"></div>
-        <div class="event-thumb"><img src="images/ento-2.jpg" alt="Entomological survey pilot training" data-cap="Entomological survey — pilot training"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/hot-korail.jpg" data-full="images/hot-korail.jpg" loading="lazy" decoding="async" alt="Field site selection visit: Korail" data-cap="Field site selection visit: Korail, DNCC"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/hot-wari.jpg" data-full="images/hot-wari.jpg" loading="lazy" decoding="async" alt="Field site selection visit: Wari" data-cap="Field site selection visit: Wari Rabidas Para, DSCC"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/dscc-1.jpg" data-full="images/dscc-1.jpg" loading="lazy" decoding="async" alt="DSCC stakeholder workshop day 1" data-cap="DSCC stakeholder workshop: Day 1"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/dscc-2.jpg" data-full="images/dscc-2.jpg" loading="lazy" decoding="async" alt="DSCC stakeholder workshop day 2" data-cap="DSCC stakeholder workshop: Day 2"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/ento-1.jpg" data-full="images/ento-1.jpg" loading="lazy" decoding="async" alt="Entomological survey training" data-cap="Entomological survey training"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/ento-2.jpg" data-full="images/ento-2.jpg" loading="lazy" decoding="async" alt="Entomological survey pilot training" data-cap="Entomological survey: pilot training"></div>
       </div>
     </div>
 
@@ -524,56 +646,56 @@ footer { background: #264f36; border-top: 1px solid rgba(255,255,255,0.08); padd
       <div class="event-tags"><span class="ptag">IoT</span><span class="ptag">Microclimate</span></div>
       <div class="event-text">Deployment of two IoT weather stations for microclimate monitoring in the study areas, including site selection, hardware installation and setup of remote data retrieval.</div>
       <div class="event-gallery">
-        <div class="event-thumb"><img src="images/weather-1.jpg" alt="Weather station deployment" data-cap="IoT weather station deployment"></div>
-        <div class="event-thumb"><img src="images/weather-2.jpg" alt="Weather station installation" data-cap="Weather station installation"></div>
-        <div class="event-thumb"><img src="images/weather-3.jpg" alt="Microclimate monitoring station" data-cap="Microclimate monitoring station"></div>
-        <div class="event-thumb"><img src="images/weather-4.jpg" alt="Field weather station" data-cap="Field weather station setup"></div>
-        <div class="event-thumb"><img src="images/weather-5.jpg" alt="Weather station setup" data-cap="Weather station setup"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/weather-1.jpg" data-full="images/weather-1.jpg" loading="lazy" decoding="async" alt="Weather station deployment" data-cap="IoT weather station deployment"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/weather-2.jpg" data-full="images/weather-2.jpg" loading="lazy" decoding="async" alt="Weather station installation" data-cap="Weather station installation"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/weather-3.jpg" data-full="images/weather-3.jpg" loading="lazy" decoding="async" alt="Microclimate monitoring station" data-cap="Microclimate monitoring station"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/weather-4.jpg" data-full="images/weather-4.jpg" loading="lazy" decoding="async" alt="Field weather station" data-cap="Field weather station setup"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/weather-5.jpg" data-full="images/weather-5.jpg" loading="lazy" decoding="async" alt="Weather station setup" data-cap="Weather station setup"></div>
       </div>
     </div>
 
     <div class="event-block">
       <div class="event-head">
-        <span class="event-title">RISK-E-SCAPE — Disaster Health &amp; Climate Resilience Short Course</span>
+        <span class="event-title">RISK-E-SCAPE: Disaster Health &amp; Climate Resilience Short Course</span>
         <span class="event-meta">Independent University Bangladesh (IUB) · 2025</span>
       </div>
       <div class="event-tags"><span class="ptag">EU Funded</span><span class="ptag">Disaster Health</span><span class="ptag">IUB</span></div>
       <div class="event-text">Professional short course on improving disaster health and climate resilience across the environmental crisis in Nepal and Bangladesh. Organized by the Department of Environmental Science &amp; Management and OECE at IUB, co-funded by the European Union. Covered humanitarian medicine, community engagement and disaster response strategies.</div>
       <div class="event-gallery">
-        <div class="event-thumb"><img src="images/risk-1.jpg" alt="RISK-E-SCAPE session" data-cap="RISK-E-SCAPE course session — IUB"></div>
-        <div class="event-thumb"><img src="images/risk-2.jpg" alt="Disaster health training" data-cap="Disaster health training session"></div>
-        <div class="event-thumb"><img src="images/risk-3.jpg" alt="Climate resilience course" data-cap="Climate resilience course"></div>
-        <div class="event-thumb"><img src="images/risk-4.jpg" alt="RISK-E-SCAPE session" data-cap="RISK-E-SCAPE reflection session"></div>
-        <div class="event-thumb"><img src="images/risk-5.jpg" alt="Certificate ceremony IUB" data-cap="Certificate giving ceremony — IUB"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/risk-1.jpg" data-full="images/risk-1.jpg" loading="lazy" decoding="async" alt="RISK-E-SCAPE session" data-cap="RISK-E-SCAPE course session at IUB"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/risk-2.jpg" data-full="images/risk-2.jpg" loading="lazy" decoding="async" alt="Disaster health training" data-cap="Disaster health training session"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/risk-3.jpg" data-full="images/risk-3.jpg" loading="lazy" decoding="async" alt="Climate resilience course" data-cap="Climate resilience course"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/risk-4.jpg" data-full="images/risk-4.jpg" loading="lazy" decoding="async" alt="RISK-E-SCAPE session" data-cap="RISK-E-SCAPE reflection session"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/risk-5.jpg" data-full="images/risk-5.jpg" loading="lazy" decoding="async" alt="Certificate ceremony IUB" data-cap="Certificate giving ceremony at IUB"></div>
       </div>
     </div>
 
     <div class="event-block">
       <div class="event-head">
-        <span class="event-title">IoT Training — IIT Jahangirnagar University</span>
+        <span class="event-title">IoT Training: IIT Jahangirnagar University</span>
         <span class="event-meta">Institute of IT, Jahangirnagar University (EDGE Project) · 2024</span>
       </div>
       <div class="event-tags"><span class="ptag">IoT</span><span class="ptag">Embedded Systems</span><span class="ptag">80 hrs</span></div>
-      <div class="event-text">80-hour IoT training under the EDGE Project at the Institute of Information Technology, Jahangirnagar University — sensors, microcontrollers and embedded systems applied to environmental monitoring.</div>
+      <div class="event-text">80-hour IoT training under the EDGE Project at the Institute of Information Technology, Jahangirnagar University, covering sensors, microcontrollers and embedded systems for environmental monitoring.</div>
       <div class="event-gallery">
-        <div class="event-thumb"><img src="images/iot-1.jpg" alt="IoT training" data-cap="IoT training — IIT Jahangirnagar University"></div>
-        <div class="event-thumb"><img src="images/iot-2.jpg" alt="IoT training hands-on" data-cap="Hands-on sensor work"></div>
-        <div class="event-thumb"><img src="images/iot-3.jpg" alt="Microcontroller work" data-cap="Microcontroller and circuit work"></div>
-        <div class="event-thumb"><img src="images/iot-4.jpg" alt="IoT lab session" data-cap="IoT lab session"></div>
-        <div class="event-thumb"><img src="images/iot-5.jpg" alt="IoT training" data-cap="IoT training session"></div>
-        <div class="event-thumb"><img src="images/iot-6.jpg" alt="IoT training" data-cap="IoT training — embedded systems"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/iot-1.jpg" data-full="images/iot-1.jpg" loading="lazy" decoding="async" alt="IoT training" data-cap="IoT training: IIT Jahangirnagar University"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/iot-2.jpg" data-full="images/iot-2.jpg" loading="lazy" decoding="async" alt="IoT training hands-on" data-cap="Hands-on sensor work"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/iot-3.jpg" data-full="images/iot-3.jpg" loading="lazy" decoding="async" alt="Microcontroller work" data-cap="Microcontroller and circuit work"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/iot-4.jpg" data-full="images/iot-4.jpg" loading="lazy" decoding="async" alt="IoT lab session" data-cap="IoT lab session"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/iot-5.jpg" data-full="images/iot-5.jpg" loading="lazy" decoding="async" alt="IoT training" data-cap="IoT training session"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/iot-6.jpg" data-full="images/iot-6.jpg" loading="lazy" decoding="async" alt="IoT training" data-cap="IoT training: embedded systems"></div>
       </div>
     </div>
 
     <div class="event-block">
       <div class="event-head">
-        <span class="event-title">Genocide Memorial Site Mapping — CSGJ</span>
-        <span class="event-meta">Center for the Study of Genocide &amp; Justice, Liberation War Museum · May–Nov 2024</span>
+        <span class="event-title">Genocide Memorial Site Mapping: CSGJ</span>
+        <span class="event-meta">Center for the Study of Genocide &amp; Justice, Liberation War Museum · May-Nov 2024</span>
       </div>
       <div class="event-tags"><span class="ptag">GIS</span><span class="ptag">Spatial History</span></div>
       <div class="event-text">Junior Research Fellow documenting 1971 Liberation War genocide memorial sites using remote sensing and GIS. Baseline field surveys to catalog and map memorial sites, including work in Shibalaya Upazila, Manikganj.</div>
       <div class="event-gallery">
-        <div class="event-thumb"><img src="images/csgj-1.jpg" alt="CSGJ fieldwork article" data-cap="CSGJ fieldwork — press coverage, Nov 2025"></div>
+        <div class="event-thumb" tabindex="0" role="button"><img src="images/thumbs/csgj-1.jpg" data-full="images/csgj-1.jpg" loading="lazy" decoding="async" alt="CSGJ fieldwork article" data-cap="CSGJ fieldwork: press coverage, Nov 2025"></div>
       </div>
     </div>
 
@@ -587,38 +709,38 @@ footer { background: #264f36; border-top: 1px solid rgba(255,255,255,0.08); padd
   <p class="panel-sub">Research, field deployment and consulting across academia and applied geospatial work in Bangladesh.</p>
   <div class="tl">
     <div class="tl-item">
-      <div class="tl-date">Jun 2026 – Present</div>
-      <div class="tl-title">Field Project Assistant — Dhaka Dengue Mapping Project</div>
+      <div class="tl-date">Jun 2026 - Present</div>
+      <div class="tl-title">Field Project Assistant: Dhaka Dengue Mapping Project</div>
       <div class="tl-org">GroupMappers Bangladesh & HOT (Wellcome Trust) · Dhaka</div>
       <div class="tl-body">UAV flights, two Ecowitt IoT weather stations, community OSM training, 30-delegate workshop with DNCC, DSCC, BRAC, icddr,b, CDC, NMEP and IEDCR.</div>
     </div>
     <div class="tl-item">
-      <div class="tl-date">Sept 2025 – Present</div>
+      <div class="tl-date">Sept 2025 - Present</div>
       <div class="tl-title">Research Assistant</div>
       <div class="tl-org">GMGI Solutions Ltd. · Dhaka</div>
       <div class="tl-body">6+ technical proposals for government and international agencies; satellite time-series of Manikganj river shifting; Bogura UAV surveys; Python geospatial backend development.</div>
     </div>
     <div class="tl-item">
-      <div class="tl-date">Aug 2025 – Present</div>
+      <div class="tl-date">Aug 2025 - Present</div>
       <div class="tl-title">Founder & Researcher</div>
       <div class="tl-org">Center for Environmental Research & Sustainability (CERS) · Bangladesh</div>
-      <div class="tl-body">Independent research on environmental GIS — industrial risk, river water quality and medicinal plant spatial bias. Three manuscripts in preparation.</div>
+      <div class="tl-body">Independent research on environmental GIS: industrial risk, river water quality and medicinal plant spatial bias. Three manuscripts in preparation.</div>
     </div>
     <div class="tl-item edu">
-      <div class="tl-date">Aug 2023 – Sept 2025</div>
-      <div class="tl-title">MSc in Remote Sensing & GIS — CGPA 3.84 / 4.00</div>
+      <div class="tl-date">Aug 2023 - Sept 2025</div>
+      <div class="tl-title">MSc in Remote Sensing & GIS, CGPA 3.84 / 4.00</div>
       <div class="tl-org">Institute of Remote Sensing & GIS, Jahangirnagar University</div>
-      <div class="tl-body">Thesis (grade A+): flood susceptibility mapping in Sylhet Division using Random Forest and SVM on Sentinel-1/2. NST Fellow 2024–25.</div>
+      <div class="tl-body">Thesis (grade A+): flood susceptibility mapping in Sylhet Division using Random Forest and SVM on Sentinel-1/2. NST Fellow 2024-25.</div>
     </div>
     <div class="tl-item">
-      <div class="tl-date">May – Nov 2024</div>
+      <div class="tl-date">May - Nov 2024</div>
       <div class="tl-title">Junior Research Fellow</div>
       <div class="tl-org">CSGJ, Liberation War Museum · Dhaka</div>
       <div class="tl-body">GIS web mapping of 50+ genocide memorial sites; field surveys across 7 union parishads (15 h/week).</div>
     </div>
     <div class="tl-item edu">
-      <div class="tl-date">2015 – 2018</div>
-      <div class="tl-title">BSS (Hons) in Disaster & Human Security Management — CGPA 3.46 / 4.00</div>
+      <div class="tl-date">2015 - 2018</div>
+      <div class="tl-title">BSS (Hons) in Disaster & Human Security Management, CGPA 3.46 / 4.00</div>
       <div class="tl-org">Bangladesh University of Professionals (BUP)</div>
       <div class="tl-body">Coursework in GIS, hydrology, floodplain management and public health epidemiology.</div>
     </div>
@@ -635,7 +757,7 @@ footer { background: #264f36; border-top: 1px solid rgba(255,255,255,0.08); padd
     <div>
       <div class="pub-type">Journal Article · 2025</div>
       <div class="pub-title">A comprehensive assessment of university transport services at PUST</div>
-      <div class="pub-ref">Sultana, S., Das, T., Limon, M. M. H., <strong>Islam, M.</strong>, & Rahman, M. M. (2025). <em>American Journal of Traffic and Transportation Engineering</em>, 10(2), 48–61.</div>
+      <div class="pub-ref">Sultana, S., Das, T., Limon, M. M. H., <strong>Islam, M.</strong>, & Rahman, M. M. (2025). <em>American Journal of Traffic and Transportation Engineering</em>, 10(2), 48-61.</div>
     </div>
   </div>
   <div class="pub-item">
@@ -676,7 +798,7 @@ footer { background: #264f36; border-top: 1px solid rgba(255,255,255,0.08); padd
 <div class="panel">
   <div class="panel-label">Tools & methods</div>
   <h2>Technical Skills</h2>
-  <p class="panel-sub" style="margin-bottom:28px;">Built through thesis research and active field deployment — not just listed, but used.</p>
+  <p class="panel-sub" style="margin-bottom:28px;">Built through thesis research and field deployment.</p>
   <div class="skills-cols">
     <div class="sk-col"><div class="sk-head">Earth Observation</div><div class="sk-tags"><span class="sktag">Google Earth Engine</span><span class="sktag">Sentinel-1 SAR</span><span class="sktag">Sentinel-2</span><span class="sktag">ERDAS Imagine</span><span class="sktag">LULC classification</span><span class="sktag">Time-series</span></div></div>
     <div class="sk-col"><div class="sk-head">GIS Platforms</div><div class="sk-tags"><span class="sktag">ArcGIS</span><span class="sktag">QGIS</span><span class="sktag">Leaflet</span><span class="sktag">GeoPandas</span><span class="sktag">Rasterio</span><span class="sktag">Mapillary</span></div></div>
@@ -692,10 +814,10 @@ footer { background: #264f36; border-top: 1px solid rgba(255,255,255,0.08); padd
   <div class="panel-label">Recognition</div>
   <h2>Awards & Certifications</h2>
   <div class="awards-row" style="margin-top:12px;">
-    <div class="aw"><div class="aw-icon">🏅</div><div class="aw-title">NST Fellowship 2024–25</div><div class="aw-body">Ministry of Science & Technology, Government of Bangladesh.</div></div>
+    <div class="aw"><div class="aw-icon">🏅</div><div class="aw-title">NST Fellowship 2024-25</div><div class="aw-body">Ministry of Science & Technology, Government of Bangladesh.</div></div>
     <div class="aw"><div class="aw-icon">📝</div><div class="aw-title">TOEFL iBT 87 / 120</div><div class="aw-body">B2 (CEFR) · R20 L23 S23 W21 · December 2025.</div></div>
     <div class="aw"><div class="aw-icon">🗺️</div><div class="aw-title">HOT Technical Training</div><div class="aw-body">Humanitarian OpenStreetMap Team, June 2026.</div></div>
-    <div class="aw"><div class="aw-icon">⚡</div><div class="aw-title">IoT Training — 80 hrs</div><div class="aw-body">IIT Jahangirnagar University, EDGE Project.</div></div>
+    <div class="aw"><div class="aw-icon">⚡</div><div class="aw-title">IoT Training: 80 hrs</div><div class="aw-body">IIT Jahangirnagar University, EDGE Project.</div></div>
   </div>
 </div>
 
@@ -706,9 +828,9 @@ footer { background: #264f36; border-top: 1px solid rgba(255,255,255,0.08); padd
   <div class="contact-btns">
     <a class="cbtn primary" href="mailto:monirtitas@gmail.com">✉ monirtitas@gmail.com</a>
     <a class="cbtn" href="mailto:monir@cersbd.org">monir@cersbd.org</a>
-    <a class="cbtn" href="https://linkedin.com/in/monirultitas" target="_blank">LinkedIn</a>
-    <a class="cbtn" href="https://github.com/monirultitas" target="_blank">GitHub</a>
-    <a class="cbtn" href="https://www.cersbd.org" target="_blank">cersbd.org</a>
+    <a class="cbtn" href="https://linkedin.com/in/monirultitas" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="cbtn" href="https://github.com/monirultitas" target="_blank" rel="noopener">GitHub</a>
+    <a class="cbtn" href="https://www.cersbd.org" target="_blank" rel="noopener">cersbd.org</a>
   </div>
 </div>
 
@@ -727,9 +849,58 @@ footer { background: #264f36; border-top: 1px solid rgba(255,255,255,0.08); padd
 
 <script>
 const btn = document.getElementById('back-to-top');
-window.addEventListener('scroll', () => {
-  btn.classList.toggle('visible', window.scrollY > 400);
+const nav = document.querySelector('nav');
+const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+// Back-to-top, nav shadow, and highlight the menu item for the section in view
+function onScroll() {
+  const y = window.scrollY;
+  btn.classList.toggle('visible', y > 400);
+  nav.classList.toggle('scrolled', y > 10);
+  let current = sections[0];
+  for (const s of sections) {
+    if (s.getBoundingClientRect().top <= 120) current = s;
+  }
+  // at the very bottom, the last section (contact) is the one in view
+  if (window.innerHeight + y >= document.body.scrollHeight - 4) current = sections[sections.length - 1];
+  navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current.id));
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// Phone menu
+const toggle = document.getElementById('nav-toggle');
+toggle.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', open);
+  toggle.textContent = open ? '✕' : '☰';
 });
+navLinks.forEach(a => a.addEventListener('click', () => {
+  nav.classList.remove('open');
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.textContent = '☰';
+}));
+
+// Fade blocks in as they scroll into view, staggered within each group
+(function() {
+  const groups = ['.intro-photo, .intro-text', '.sstat', '.int-item', '.proj-card', '.event-block',
+                  '.tl-item', '.pub-item', '.sk-col', '.aw', '.panel h2, .panel-label, .panel-sub', '.contact-panel > *'];
+  const items = [];
+  groups.forEach(sel => {
+    document.querySelectorAll(sel).forEach(el => {
+      const i = Array.from(el.parentElement.children).indexOf(el);
+      el.style.setProperty('--d', (i % 6) * 0.08 + 's');
+      el.classList.add('reveal');
+      items.push(el);
+    });
+  });
+  if (!('IntersectionObserver' in window)) { items.forEach(el => el.classList.add('in')); return; }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  items.forEach(el => io.observe(el));
+})();
 
 // Lightbox for event photos
 (function() {
@@ -743,13 +914,18 @@ window.addEventListener('scroll', () => {
   function show(idx) {
     current = (idx + thumbs.length) % thumbs.length;
     const img = thumbs[current];
-    lbImg.src = img.src;
+    lbImg.src = img.dataset.full || img.src;
     lbCap.textContent = img.dataset.cap || img.alt || '';
   }
   function open(idx) { show(idx); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
   function close() { lb.classList.remove('open'); document.body.style.overflow = ''; }
 
-  thumbs.forEach((img, i) => img.addEventListener('click', () => open(i)));
+  thumbs.forEach((img, i) => {
+    img.addEventListener('click', () => open(i));
+    img.parentElement.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); }
+    });
+  });
   document.getElementById('lb-close').addEventListener('click', close);
   document.getElementById('lb-prev').addEventListener('click', (e) => { e.stopPropagation(); show(current - 1); });
   document.getElementById('lb-next').addEventListener('click', (e) => { e.stopPropagation(); show(current + 1); });
